@@ -20,6 +20,15 @@ module.exports = {
     .catch((err) => {
       console.log(err)
     })   
+  },
+  deleteMovie: (req, res) => {
+    Movie.destroy({ where: { id: req.params.id } })
+    .then((movie) => {
+      res.sendStatus(200) 
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
 }
 
